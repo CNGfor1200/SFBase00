@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:sync="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+                   
+                   
+              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+              xmlns:gradient ="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+              xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"                 
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+              mc:Ignorable="d"
+              x:Class="SFBase00.RadioButton">
+  <StackLayout>
+    <ScrollView>
+      <StackLayout x:Name="MainStack">
+        <Frame x:Name="frame" CornerRadius="10" Padding="0" Margin="35,60,35,0" OutlineColor="#29000000" HasShadow="True">
+          <StackLayout>
+            <Label  x:Name="headerText" Margin="0,30,0,0" Text="Apply New FDA Rule 12.B.6" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="#555555" />
+            <StackLayout x:Name="amtStack" Orientation="Horizontal" Margin="15,25,15,0">
+              <Label x:Name="amountlabl" Margin="0,15,0,0" Text="Fee covered by Insurance" HorizontalOptions="Start" FontSize="16" TextColor="#000000"></Label>
+              <Label x:Name="amt" Margin="0,15,0,0" Text="$120" HorizontalOptions="EndAndExpand" FontAttributes="Bold" FontSize="18"  TextColor="#007DE6" ></Label>
+            </StackLayout>
+            <Frame CornerRadius="0" Padding="0" Margin="15,25,15,0" x:Name="lineFrame" BackgroundColor="#29000000" HasShadow="False" HeightRequest="1" />
+            <sync:SfRadioGroup x:Name="radioGroup" Margin="0,20,0,0">
+              <Label x:Name="paymentmodelbl" Text="Select MD-Advised treatment" Margin="15,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" FontSize="16" TextColor="#555555"></Label>
+              <sync:SfRadioButton x:Name="netbanking" Margin="15,10,0,0" Text="Cold Compressions" FontSize="16" TextColor="#000000"  StateChanged="paymentMode_StateChanged" ></sync:SfRadioButton>
+              <sync:SfRadioButton x:Name="debit" Margin="15,10,0,0" Text="Inhouse TMP's" FontSize="16" TextColor="#000000"  StateChanged="paymentMode_StateChanged" ></sync:SfRadioButton>
+              <sync:SfRadioButton x:Name="credit"  Margin="15,10,0,35" Text="Move to ICU" FontSize="16" TextColor="#000000"  StateChanged="paymentMode_StateChanged" ></sync:SfRadioButton>
+            </sync:SfRadioGroup>
+          </StackLayout>
+        </Frame>
+        <Button x:Name="buttn" Margin="0,30,0,0" VerticalOptions="EndAndExpand" BackgroundColor="#FF007DE6" IsEnabled="False" TextColor="#FFFFFF" Text="Move Now" FontSize="21" Clicked="Buttn_Clicked"></Button>
+      </StackLayout>
+    </ScrollView>
+    <!-- ================== -->
+    <!-- CNG Msg on bottom  -->
+    <!-- ================== -->
+    <StackLayout HorizontalOptions="Center" 
+                 VerticalOptions="Center">
+      <sync:SfButton HeightRequest="50" 
+                        HorizontalOptions="StartAndExpand" 
+                        BackgroundColor="LightYellow"  
+                        VerticalOptions="Center" 
+                        Clicked="OnbtPrimaryButtons999ClickedAsync">
+        <sync:SfButton.Content>
+          <StackLayout Orientation="Horizontal">
+            <busyindicator:SfBusyIndicator 
+              AnimationType="Gear" IsBusy="True" 
+              TextColor="Blue" WidthRequest="60"/>
+            <Label Text="Published by CNG Internet Software, LLC. Publisher of the 'Small App - Big Impact' App Series [Tap to see]" 
+                   FontSize="11" 
+                   VerticalTextAlignment="Center" 
+                   TextColor="Black" HorizontalTextAlignment="Start" />
+          </StackLayout>
+        </sync:SfButton.Content>
+      </sync:SfButton>
+    </StackLayout>
+  </StackLayout>
+</ContentPage>

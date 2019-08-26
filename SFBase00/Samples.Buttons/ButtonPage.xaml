@@ -1,0 +1,761 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:gradient ="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms" 
+
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:SFBase00"
+             Padding="0,40,0,0"
+             xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+             x:Class="SFBase00.ButtonPage">
+  <StackLayout>
+    <!-- Place new controls here -->
+    <Label Text="Syncfusion - Plain Buttons" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" FontSize="Body" HeightRequest="20" HorizontalTextAlignment="Center" TextColor="#000000" />
+    <ScrollView>
+      <Grid Padding="1">
+        <Grid.RowDefinitions>
+          <RowDefinition >
+            <RowDefinition.Height>
+              <OnPlatform x:TypeArguments="GridLength">
+                <!--<On Platform="UWP">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="100" Tablet="140" Phone="70"/>
+                </On>-->
+                <On Platform="Android">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="140" Tablet="140" Phone="70"/>
+                </On>
+                <On Platform="iOS">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="140" Tablet="140" Phone="70"/>
+                </On>
+              </OnPlatform>
+            </RowDefinition.Height>
+          </RowDefinition>
+          <RowDefinition >
+            <RowDefinition.Height>
+              <OnPlatform x:TypeArguments="GridLength">
+                <!--<On Platform="UWP">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="100" Tablet="140" Phone="70"/>
+                </On>-->
+                <On Platform="Android">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="140" Tablet="140" Phone="70"/>
+                </On>
+                <On Platform="iOS">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="140" Tablet="140" Phone="70"/>
+                </On>
+              </OnPlatform>
+            </RowDefinition.Height>
+          </RowDefinition>
+          <RowDefinition >
+            <RowDefinition.Height>
+              <OnPlatform x:TypeArguments="GridLength">
+                <!--<On Platform="UWP">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="100" Tablet="140" Phone="70"/>
+                </On>-->
+                <On Platform="Android">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="140" Tablet="140" Phone="70"/>
+                </On>
+                <On Platform="iOS">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="140" Tablet="140" Phone="70"/>
+                </On>
+              </OnPlatform>
+            </RowDefinition.Height>
+          </RowDefinition>
+          <RowDefinition >
+            <RowDefinition.Height>
+              <OnPlatform x:TypeArguments="GridLength">
+                <!--<On Platform="UWP">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="100" Tablet="140" Phone="70"/>
+                </On>-->
+                <On Platform="Android">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="140" Tablet="140" Phone="70"/>
+                </On>
+                <On Platform="iOS">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="140" Tablet="140" Phone="70"/>
+                </On>
+              </OnPlatform>
+            </RowDefinition.Height>
+          </RowDefinition>
+          <RowDefinition >
+            <RowDefinition.Height>
+              <OnPlatform x:TypeArguments="GridLength">
+                <!--<On Platform="UWP">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="100" Tablet="140" Phone="70"/>
+                </On>-->
+                <On Platform="Android">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="140" Tablet="140" Phone="70"/>
+                </On>
+                <On Platform="iOS">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="140" Tablet="140" Phone="70"/>
+                </On>
+              </OnPlatform>
+            </RowDefinition.Height>
+          </RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition>
+            <ColumnDefinition.Width>
+              <OnPlatform x:TypeArguments="GridLength">
+                <On Platform="Android">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="170" Tablet="200" Phone="175" />
+                </On>
+                <On Platform="iOS">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="170" Tablet="200" Phone="175" />
+                </On>
+              </OnPlatform>
+            </ColumnDefinition.Width>
+          </ColumnDefinition>
+          <ColumnDefinition>
+            <ColumnDefinition.Width>
+              <OnPlatform x:TypeArguments="GridLength">
+                <On Platform="Android">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="170" Tablet="140" Phone="175" />
+                </On>
+                <On Platform="iOS">
+                  <OnIdiom x:TypeArguments="GridLength" Desktop="170" Tablet="140" Phone="175" />
+                </On>
+              </OnPlatform>
+            </ColumnDefinition.Width>
+          </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!-- ================== -->
+        <!-- Primary Button     -->
+        <!-- ================== -->
+        <StackLayout
+                                 HorizontalOptions="Center" 
+                                 VerticalOptions="Center">
+          <syncfusion:SfButton x:Name="primaryButton"
+                                         Text="Primary Button"
+                                         WidthRequest="130"
+                                         HeightRequest="40"
+                                         CornerRadius="12" BackgroundColor="#1976D2" TextColor="#FFFFFF"
+                               Clicked="OnbtPrimaryButtons000ClickedAsync"/>
+        </StackLayout>
+        <!-- ================== -->
+        <!-- Normal Button      -->
+        <!-- ================== -->
+        <StackLayout Grid.Column="1"                                
+                                 HorizontalOptions="Center" 
+                                 VerticalOptions="Center">
+          <syncfusion:SfButton x:Name="normalButton"
+                                             Text="Normal Button"
+                                             WidthRequest="130"
+                                             HeightRequest="40"
+                                             CornerRadius="12" BackgroundColor="#1976D2" TextColor="#FFFFFF"
+                               Clicked="OnbtNormalButtons100ClickedAsync"/>
+        </StackLayout>
+        <!-- ================== -->
+        <!-- Flat Button        -->
+        <!-- ================== -->
+        <StackLayout Grid.Row="1" 
+                                 HorizontalOptions="Center" 
+                                 VerticalOptions="Center">
+          <syncfusion:SfButton x:Name="flatButton"
+                                             Text="Flat Button"
+                                             BorderWidth="0"
+                                             WidthRequest="130"
+                                             HeightRequest="40"
+                                             TextColor="Accent"
+                                             BackgroundColor="Transparent"
+                                             CornerRadius="12" 
+                               Clicked="OnbtPrimaryButtons200ClickedAsync"/>
+        </StackLayout>
+        <!-- ================== -->
+        <!-- Outline Button     -->
+        <!-- ================== -->
+        <StackLayout Grid.Row="1"
+                                 Grid.Column="1" 
+                                 HorizontalOptions="Center" 
+                                 VerticalOptions="Center">
+          <syncfusion:SfButton x:Name="outlineButton"
+                                             Text="Outline Button"
+                                             WidthRequest="130"
+                                             TextColor="Accent"
+                                             HeightRequest="40"
+                                             BackgroundColor="White"
+                                             CornerRadius="12"
+                                             BorderColor="Blue"
+                               Clicked="OnbtPrimaryButtons300ClickedAsync">
+            <syncfusion:SfButton.BorderWidth>
+              <OnPlatform x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="2" />
+                <On Platform="Android" Value="1" />
+              </OnPlatform>
+            </syncfusion:SfButton.BorderWidth>
+          </syncfusion:SfButton>
+        </StackLayout>
+        <!-- ================== -->
+        <!-- Left Icon Button   -->
+        <!-- ================== -->
+        <StackLayout Grid.Row="2" 
+                                 HorizontalOptions="Center" 
+                                 VerticalOptions="Center" >
+          <syncfusion:SfButton x:Name="iconButtonLeft"
+                                             ShowIcon="True"
+                                             ImageSource="button_Heart.png"
+                                             Text="#1 Icon Button "
+                                             WidthRequest="130"
+                                             HeightRequest="40"
+                                             CornerRadius="12"
+                               Clicked="OnbtPrimaryButtons400ClickedAsync"/>
+        </StackLayout>
+        <!-- ================== -->
+        <!-- Right Icon Button  -->
+        <!-- ================== -->
+        <StackLayout Grid.Row="2"
+                                 Grid.Column="1" 
+                                 HorizontalOptions="Center" 
+                                 VerticalOptions="Center">
+          <syncfusion:SfButton x:Name="iconButtonRight"
+                                             ShowIcon="True"
+                                             HeightRequest="40"
+                                             ImageSource="button_Heart.png"
+                                             ImageAlignment="End"
+                                             Text="# 2 Icon Button"
+                                             CornerRadius="12"
+                               Clicked="OnbtPrimaryButtons500ClickedAsync">
+            <syncfusion:SfButton.WidthRequest>
+              <OnPlatform x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="135" />
+                <On Platform="Android" Value="130" />
+              </OnPlatform>
+            </syncfusion:SfButton.WidthRequest>
+          </syncfusion:SfButton>
+        </StackLayout>
+        <!-- ========================== -->
+        <!-- Edge Circular Icon Button  -->
+        <!-- ========================== -->
+        <StackLayout Grid.Row="3" 
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+          <syncfusion:SfButton x:Name="circleButton"
+                                             HorizontalOptions="Center"
+                                             VerticalOptions="Center"
+                                             HorizontalTextAlignment="Center"
+                                             VerticalTextAlignment="Center"
+                                             Text="&#xEB52;"
+                                             BorderWidth="0"
+                                             FontSize="20"
+                                             WidthRequest="40"
+                                             HeightRequest="40"
+                                             CornerRadius="20" 
+                               Clicked="OnbtPrimaryButtons600ClickedAsync">
+            <syncfusion:SfButton.FontFamily>
+              <OnPlatform x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Segoe MDL2 Assets" />
+                <On Platform="Android" Value="button_Segoe MDL2 Assets.ttf#Segoe MDL2 Assets" />
+              </OnPlatform>
+            </syncfusion:SfButton.FontFamily>
+          </syncfusion:SfButton>
+        </StackLayout>
+        <!-- =========================== -->
+        <!-- Plain Circular Icon Button  -->
+        <!-- =========================== -->
+        <StackLayout Grid.Row="3"
+                                 Grid.Column="1"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+          <syncfusion:SfButton x:Name="iconButton"
+                                             HorizontalOptions="Center"
+                                             VerticalOptions="Center"
+                                             HorizontalTextAlignment="Center"
+                                             VerticalTextAlignment="Center"
+                                             Text="&#xEB52;"
+                                             BorderWidth="0"
+                                             FontSize="16"
+                                             WidthRequest="40"
+                                             HeightRequest="40"
+                                             CornerRadius="20"
+                                             IsCheckable="true"
+                                             TextColor="Black"
+                                             BackgroundColor="Transparent"
+                               
+                                     PressedBackgroundColor="Transparent"
+                                   Clicked="OnbtPrimaryButtons700ClickedAsync">
+            <syncfusion:SfButton.FontFamily>
+              <OnPlatform x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Segoe MDL2 Assets" />
+                <On Platform="Android" Value="button_Segoe MDL2 Assets.ttf#Segoe MDL2 Assets" />
+              </OnPlatform>
+            </syncfusion:SfButton.FontFamily>
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Checked" >
+                  <VisualState.Setters>
+                    <Setter Property="TextColor" Value="Accent"/>
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Unchecked">
+                  <VisualState.Setters>
+                    <Setter Property="TextColor" Value="Black" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+          </syncfusion:SfButton>
+        </StackLayout>
+        <!-- ================== -->
+        <!-- Linear Gradient Button  -->
+        <!-- ================== -->
+        <StackLayout Grid.Row="4" Grid.Column="0"
+                             HorizontalOptions="Center" 
+                             VerticalOptions="Center">
+          <syncfusion:SfButton Text="Linear Gradient"
+                                         WidthRequest="120"
+                                         HeightRequest="40"
+                                         CornerRadius="20"
+                                         IsCheckable="True"
+                               Clicked="OnbtPrimaryButtons800ClickedAsync">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Checked" >
+                  <VisualState.Setters>
+                    <Setter Property="BackgroundGradient">
+                      <Setter.Value>
+                        <gradient:SfLinearGradientBrush>
+                          <gradient:SfLinearGradientBrush.GradientStops>
+                            <gradient:SfGradientStop Color="#51F1F2" Offset="0"/>
+                            <gradient:SfGradientStop Color="#2F9BDF" Offset="1"/>
+                          </gradient:SfLinearGradientBrush.GradientStops>
+                        </gradient:SfLinearGradientBrush>
+                      </Setter.Value>
+                    </Setter>
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Unchecked">
+                  <VisualState.Setters>
+                    <Setter Property="BackgroundGradient">
+                      <Setter.Value>
+                        <gradient:SfLinearGradientBrush>
+                          <gradient:SfLinearGradientBrush.GradientStops>
+                            <gradient:SfGradientStop Color="#2F9BDF" Offset="0"/>
+                            <gradient:SfGradientStop Color="#51F1F2" Offset="1"/>
+                          </gradient:SfLinearGradientBrush.GradientStops>
+                        </gradient:SfLinearGradientBrush>
+                      </Setter.Value>
+                    </Setter>
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+          </syncfusion:SfButton>
+        </StackLayout>
+        <!-- ========================= -->
+        <!-- Circular Gradient Button  -->
+        <!-- ========================= -->
+        <StackLayout Grid.Row="4" Grid.Column="1"
+                             HorizontalOptions="Center" 
+                             VerticalOptions="Center">
+          <syncfusion:SfButton Text="Radial Gradient"
+                                         WidthRequest="120"
+                                         HeightRequest="40"
+                                         CornerRadius="20"
+                                         IsCheckable="True"
+                               Clicked="OnbtPrimaryButtons900ClickedAsync">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Checked" >
+                  <VisualState.Setters>
+                    <Setter Property="BackgroundGradient">
+                      <Setter.Value>
+                        <gradient:SfRadialGradientBrush Radius="1.5">
+                          <gradient:SfRadialGradientBrush.GradientStops>
+                            <gradient:SfGradientStop Color="#FF5361" Offset="0.3"/>
+                            <gradient:SfGradientStop Color="#FFB57B" Offset="1"/>
+                          </gradient:SfRadialGradientBrush.GradientStops>
+                        </gradient:SfRadialGradientBrush>
+                      </Setter.Value>
+                    </Setter>
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Unchecked">
+                  <VisualState.Setters>
+                    <Setter Property="BackgroundGradient">
+                      <Setter.Value>
+                        <gradient:SfRadialGradientBrush Radius="1">
+                          <gradient:SfRadialGradientBrush.GradientStops>
+                            <gradient:SfGradientStop Color="#FFB57B" Offset="0"/>
+                            <gradient:SfGradientStop Color="#FF5361" Offset="1"/>
+                          </gradient:SfRadialGradientBrush.GradientStops>
+                        </gradient:SfRadialGradientBrush>
+                      </Setter.Value>
+                    </Setter>
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+          </syncfusion:SfButton>
+        </StackLayout>
+      </Grid>
+    </ScrollView>
+    <!-- ================== -->
+    <!-- CNG Msg on bottom  -->
+    <!-- ================== -->
+    <StackLayout HorizontalOptions="Center" 
+                 VerticalOptions="Center">
+      <buttons:SfButton HeightRequest="50" 
+                        HorizontalOptions="StartAndExpand" 
+                        BackgroundColor="LightYellow"  
+                        VerticalOptions="Center" 
+                        Clicked="OnbtPrimaryButtons999ClickedAsync">
+        <buttons:SfButton.Content>
+          <StackLayout Orientation="Horizontal">
+            <busyindicator:SfBusyIndicator 
+              AnimationType="Gear" IsBusy="True" 
+              TextColor="Blue" WidthRequest="60"/>
+            <Label Text="Published by CNG Internet Software, LLC. Publisher of the 'Small App - Big Impact' App Series [Tap to see]" 
+                   FontSize="11" 
+                   VerticalTextAlignment="Center" 
+                   TextColor="Black" HorizontalTextAlignment="Start" />
+          </StackLayout>
+        </buttons:SfButton.Content>
+      </buttons:SfButton>
+    </StackLayout>
+    
+    <!-- ============================ -->
+    <!-- Popup Box 000                -->
+    <!-- Plain Box, Plain msg         -->
+    <!-- ============================ -->
+    <sfPopup:SfPopupLayout x:Name="popupLayout000">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="True">
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                               TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout000">
+          <Button x:Name="clickToShowPopup000" Text="ClickToShowPopup000" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+    <!-- ============================ -->
+    <!-- Popup Box 100                -->
+    <!-- X-out, 2 msgs, Standard msg  -->
+    <!-- ============================ -->
+    <sfPopup:SfPopupLayout x:Name="popupLayout100">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="True" AppearanceMode="TwoButton" >
+          <sfPopup:PopupView.ContentTemplate>
+            <DataTemplate>
+              <Label Text="This process needs a little more time.&#10; Can you wait for 26.78 seconds?&#10;&#10;&#10;Thank you." BackgroundColor="SkyBlue"
+                           HorizontalTextAlignment="Center"/>
+            </DataTemplate>
+          </sfPopup:PopupView.ContentTemplate>
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Internet Inc. - Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                               TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+          <sfPopup:PopupView.PopupStyle>
+            <sfPopup:PopupStyle FooterBackgroundColor="LightGray"
+                                        AcceptButtonBackgroundColor ="DimGray"
+                                        AcceptButtonTextColor="White"
+                                        DeclineButtonBackgroundColor="DimGray"
+                                        DeclineButtonTextColor="White"
+                                        />
+          </sfPopup:PopupView.PopupStyle>
+        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout100">
+          <Button x:Name="clickToShowPopup100" Text="ClickToShowPopup100" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+    <!-- ============================ -->
+    <!-- Popup Box 200                -->
+    <!-- Plain Box, Plain msg         -->
+    <!-- ============================ -->
+    <sfPopup:SfPopupLayout x:Name="popupLayout200">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="False">
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Internet Inc. - Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                               TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout200">
+          <Button x:Name="clickToShowPopup200" Text="ClickToShowPopup200" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+    <!-- ============================ -->
+    <!-- Popup Box 300                -->
+        <!-- X-out, 2 msgs, Standard msg  -->
+    <!-- ============================ -->
+    <sfPopup:SfPopupLayout x:Name="popupLayout300">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="True" AppearanceMode="TwoButton" >
+          <sfPopup:PopupView.ContentTemplate>
+            <DataTemplate>
+              <Label Text="This process needs a little more time.&#10; Can you wait for 26.78 seconds?&#10;&#10;&#10;Thank you." BackgroundColor="SkyBlue"
+                           HorizontalTextAlignment="Center"/>
+            </DataTemplate>
+          </sfPopup:PopupView.ContentTemplate>
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Internet Inc. - Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                               TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+          <sfPopup:PopupView.PopupStyle>
+            <sfPopup:PopupStyle FooterBackgroundColor="LightGray"
+                                        AcceptButtonBackgroundColor ="DimGray"
+                                        AcceptButtonTextColor="White"
+                                        DeclineButtonBackgroundColor="DimGray"
+                                        DeclineButtonTextColor="White"
+                                        />
+          </sfPopup:PopupView.PopupStyle>
+        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout300">
+          <Button x:Name="clickToShowPopup300" Text="ClickToShowPopup300" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+    <!-- ============================ -->
+    <!-- Popup Box 400                -->
+    <!-- Plain Box, Plain msg         -->
+    <!-- ============================ -->
+    <sfPopup:SfPopupLayout x:Name="popupLayout400">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="False">
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Internet Inc. - Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                               TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout400">
+          <Button x:Name="clickToShowPopup400" Text="ClickToShowPopup400" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+    <!-- ============================ -->
+    <!-- Popup Box 500                -->
+        <!-- X-out, 2 msgs, Standard msg  -->
+    <!-- ============================ -->
+    <sfPopup:SfPopupLayout x:Name="popupLayout500">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="True" AppearanceMode="TwoButton" >
+          <sfPopup:PopupView.ContentTemplate>
+            <DataTemplate>
+              <Label Text="This process needs a little more time.&#10; Can you wait for 26.78 seconds?&#10;&#10;&#10;Thank you." BackgroundColor="SkyBlue"
+                           HorizontalTextAlignment="Center"/>
+            </DataTemplate>
+          </sfPopup:PopupView.ContentTemplate>
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Internet Inc. - Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                               TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+          <sfPopup:PopupView.PopupStyle>
+            <sfPopup:PopupStyle FooterBackgroundColor="LightGray"
+                                        AcceptButtonBackgroundColor ="DimGray"
+                                        AcceptButtonTextColor="White"
+                                        DeclineButtonBackgroundColor="DimGray"
+                                        DeclineButtonTextColor="White"
+                                        />
+          </sfPopup:PopupView.PopupStyle>
+        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout500">
+          <Button x:Name="clickToShowPopup500" Text="ClickToShowPopup500" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+    <!-- ============================ -->
+    <!-- Popup Box 600                -->
+    <!-- Plain Box, Plain msg         -->
+    <!-- ============================ -->
+    <sfPopup:SfPopupLayout x:Name="popupLayout600">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="False">
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Internet Inc. - Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                               TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout600">
+          <Button x:Name="clickToShowPopup600" Text="ClickToShowPopup600" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+    <!-- ============================ -->
+    <!-- Popup Box 700                -->
+        <!-- X-out, 2 msgs, Standard msg  -->
+    <!-- ============================ -->
+    <sfPopup:SfPopupLayout x:Name="popupLayout700">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="True" AppearanceMode="TwoButton" >
+          <sfPopup:PopupView.ContentTemplate>
+            <DataTemplate>
+              <Label Text="This process needs a little more time.&#10; Can you wait for 26.78 seconds?&#10;&#10;&#10;Thank you." BackgroundColor="SkyBlue"
+                           HorizontalTextAlignment="Center"/>
+            </DataTemplate>
+          </sfPopup:PopupView.ContentTemplate>
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Internet Inc. - Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                               TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+          <sfPopup:PopupView.PopupStyle>
+            <sfPopup:PopupStyle FooterBackgroundColor="LightGray"
+                                        AcceptButtonBackgroundColor ="DimGray"
+                                        AcceptButtonTextColor="White"
+                                        DeclineButtonBackgroundColor="DimGray"
+                                        DeclineButtonTextColor="White"
+                                        />
+          </sfPopup:PopupView.PopupStyle>        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout700">
+          <Button x:Name="clickToShowPopup700" Text="ClickToShowPopup700" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+    <!-- ============================ -->
+    <!-- Popup Box 800                -->
+    <!-- Plain Box, Plain msg         -->
+    <!-- ============================ -->
+    <sfPopup:SfPopupLayout x:Name="popupLayout800">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="False">
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Internet Inc. - Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                               TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout800">
+          <Button x:Name="clickToShowPopup800" Text="ClickToShowPopup800" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+    <!-- ============================ -->
+    <!-- Popup Box 900                -->
+    <!-- X-out, 2 msgs, Standard msg  -->
+    <!-- ============================ -->
+    <sfPopup:SfPopupLayout x:Name="popupLayout900">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="True" AppearanceMode="TwoButton" AnimationMode="SlideOnLeft" >
+          <sfPopup:PopupView.ContentTemplate>
+            <DataTemplate>
+              <Label Text="This process needs a little more time.&#10; Can you wait for 26.78 seconds?&#10;&#10;&#10;Thank you." BackgroundColor="SkyBlue"
+                           HorizontalTextAlignment="Center"/>
+            </DataTemplate>
+          </sfPopup:PopupView.ContentTemplate>
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Internet Inc. - Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                               TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+          <sfPopup:PopupView.PopupStyle>
+            <sfPopup:PopupStyle FooterBackgroundColor="LightGray"
+                                        AcceptButtonBackgroundColor ="DimGray"
+                                        AcceptButtonTextColor="White"
+                                        DeclineButtonBackgroundColor="DimGray"
+                                        DeclineButtonTextColor="White"
+                                        />
+          </sfPopup:PopupView.PopupStyle>        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout900">
+          <Button x:Name="clickToShowPopup900" Text="ClickToShowPopup900" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+  </StackLayout>
+</ContentPage>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SFBase00.RootPage">
+  <ContentPage.Content>
+    <StackLayout BackgroundColor="White" Padding="60">
+      <Label Text="Root-Page - Syncfusion Demo"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+      <Button Text="  Basic Buttons  " 
+              TextColor="#000000"
+              BackgroundColor="#D3D3D3" 
+              VerticalOptions="Start" 
+              HorizontalOptions="Start"
+              Clicked="OnbtBasicButtonsClickedAsync" HeightRequest="25" FontSize="Micro" BorderColor="#0000FF" BorderWidth="1" Margin="0,20,0,10" Padding="0,4,0,4"></Button>
+      <Button Text="  Switches  " 
+              TextColor="#000000"
+              BackgroundColor="#D3D3D3" 
+              VerticalOptions="Start" 
+              HorizontalOptions="Start"
+              Clicked="OnbtSwitchesClickedAsync" HeightRequest="25" FontSize="Micro" BorderColor="#0000FF" BorderWidth="1" Margin="0,0,0,10" Padding="0,4,0,4"></Button>
+      <Button Text="  Radio Buttons  " 
+              TextColor="#000000"
+              BackgroundColor="#D3D3D3" 
+              VerticalOptions="Start" 
+              HorizontalOptions="Start"
+              Clicked="OnbtRadioButtonsClickedAsync" HeightRequest="25" FontSize="Micro" BorderColor="#0000FF" BorderWidth="1" Margin="0,0,0,10" Padding="0,4,0,4"></Button>
+      <Button Text="  Borders  " 
+              TextColor="#000000"
+              BackgroundColor="#D3D3D3" 
+              VerticalOptions="Start" 
+              HorizontalOptions="Start"
+              Clicked="OnbtBorderButtonsClickedAsync" HeightRequest="25" FontSize="Micro" BorderColor="#0000FF" BorderWidth="1" Margin="0,0,0,10" Padding="0,4,0,4"></Button>
+      <Button Text="  Bussy Indicator  " 
+              TextColor="#000000"
+              BackgroundColor="#D3D3D3" 
+              VerticalOptions="Start" 
+              HorizontalOptions="Start"
+              Clicked="OnbtBussyIndicatorButtonsClickedAsync" HeightRequest="25" FontSize="Micro" BorderColor="#0000FF" BorderWidth="1" Margin="0,0,0,10" Padding="0,4,0,4"></Button>
+      <Button Text="  Text Input  " 
+              TextColor="#000000"
+              BackgroundColor="#D3D3D3" 
+              VerticalOptions="Start" 
+              HorizontalOptions="Start"
+              Clicked="OnbtTextInputPageButtonsClickedAsync" HeightRequest="25" FontSize="Micro" BorderColor="#0000FF" BorderWidth="1" Margin="0,0,0,10" Padding="0,4,0,4"></Button>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

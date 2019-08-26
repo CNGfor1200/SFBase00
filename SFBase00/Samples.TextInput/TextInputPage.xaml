@@ -1,0 +1,659 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:gradient ="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:RangeSlider="clr-namespace:Syncfusion.SfRangeSlider.XForms;assembly=Syncfusion.SfRangeSlider.XForms"
+
+             xmlns:comboBox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:maskededit="clr-namespace:Syncfusion.XForms.MaskedEdit;assembly=Syncfusion.SfMaskedEdit.XForms"
+             xmlns:autoComplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+
+             
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:SFBase00"
+             Padding="0,40,0,0"
+             xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+             xmlns:SyncfusionButton="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             x:Class="SFBase00.TextInputPage">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Color x:Key="SyncPrimaryColor">#0074C4</Color>
+      <Color x:Key="SfTextInputLayoutHelperTextColor">#707070</Color>
+      <Style  TargetType="Label">
+        <Setter Property="TextColor" Value="#787878"/>
+        <Setter Property="FontFamily" Value="Roboto" />
+        <Setter Property="FontSize" Value="15"/>
+      </Style>
+      <!--<Style x:Key="RadioButtonNormalStyle"  TargetType="SyncfusionButton:SfRadioButton">
+        <Setter Property="TextColor" Value="#007DE4"/>
+        <Setter Property="FontSize" Value="15"/>
+      </Style>-->
+      <!--<Style x:Key="SegmentedNormalStyle"  TargetType="SyncfusionButton:SfSegmentedControl">
+        <Setter Property="DisplayMode" Value="Image"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="SegmentHeight" Value="45"/>
+        <Setter Property="SegmentWidth" Value="50"/>
+        <Setter Property="Margin" Value="10,0,10,0"/>
+        <Setter Property="Color" Value="Transparent"/>
+        <Setter Property="FontIconFontColor" Value="Black"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="BorderColor" Value="#EEEEEE"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="VisibleSegmentsCount" Value="5"/>
+        <Setter Property="SegmentCornerRadius" Value="15"/>
+        <Setter Property="VisibleSegmentsCount" Value="5"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+      </Style>-->
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <!--<ContentPage.BindingContext>
+    <sftextinputlayout:SignUpViewModel x:Name="signUpViewModel" />
+  </ContentPage.BindingContext>-->
+  <StackLayout>
+    <!-- Place new controls here -->
+    <Label Text="Syncfusion - Text Input" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" FontSize="Body" HeightRequest="20" HorizontalTextAlignment="Center" TextColor="#000000" />
+    <ScrollView Margin="0,20,0,20" Padding="0,0,0,20">
+      <ScrollView.HorizontalOptions>
+        <OnIdiom
+                    x:TypeArguments="LayoutOptions"
+                    Desktop="Center"
+                    Phone="FillAndExpand"
+                    Tablet="FillAndExpand" />
+      </ScrollView.HorizontalOptions>
+      <ScrollView.WidthRequest>
+        <OnIdiom x:TypeArguments="x:Double" Desktop="400" />
+      </ScrollView.WidthRequest>
+      <StackLayout Margin="0,0,20,20" Spacing="10">
+        <!-- ================================= -->
+        <!-- Name  //  enter your name         -->
+        <!-- ================================= -->
+        <inputLayout:SfTextInputLayout
+                    x:Name="nameLayout"
+                    ContainerType="Filled"
+                    InputViewPadding="5"
+                    ErrorText="Enter your name"
+                    HasError="{Binding IsNameEmpty}"
+                    HelperText="Enter your name"
+                    Hint="Name"
+                    IsHintAlwaysFloated="{Binding EnableHintAlwaysFloated}"
+                    LeadingViewPosition="Outside">
+          <inputLayout:SfTextInputLayout.HintLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+          </inputLayout:SfTextInputLayout.HintLabelStyle>
+          <inputLayout:SfTextInputLayout.HelperLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.HelperLabelStyle>
+          <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+          <Entry x:Name="name" Text="{Binding Name}" />
+          <inputLayout:SfTextInputLayout.LeadingView>
+            <Label
+                            FontSize="18"
+                            Text="F"
+                            TextColor="{Binding Path=CurrentActiveColor, Source={x:Reference Name=nameLayout}}"
+                            VerticalTextAlignment="Center">
+              <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                  <On Platform="iOS" Value="InputLayoutIcons" />
+                  <On Platform="Android" Value="InputLayoutIcons.ttf#InputLayoutIcons" />
+                  <On Platform="UWP" Value="/Assets/Fonts/InputLayoutIcons.ttf#InputLayoutIcons" />
+                </OnPlatform>
+              </Label.FontFamily>
+            </Label>
+          </inputLayout:SfTextInputLayout.LeadingView>
+        </inputLayout:SfTextInputLayout>
+        <!-- ================================= -->
+        <!-- Phone Number  //  dont include .. -->
+        <!-- ================================= -->
+        <inputLayout:SfTextInputLayout
+                    x:Name="mobileLayout"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    ContainerType="Filled"
+                    InputViewPadding="5"
+                    ErrorText="Enter your phone number"
+                    HasError="{Binding IsMobileNumberEmpty}"
+                    HelperText="Don't include country code"
+                    Hint="Phone number"
+                    IsHintAlwaysFloated="{Binding EnableHintAlwaysFloated}"
+                    LeadingViewPosition="Outside">
+          <inputLayout:SfTextInputLayout.HintLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+          </inputLayout:SfTextInputLayout.HintLabelStyle>
+          <inputLayout:SfTextInputLayout.HelperLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.HelperLabelStyle>
+          <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+          <Entry
+                        x:Name="phoneNumber"
+                        Keyboard="Telephone"
+                        Text="{Binding PhoneNumber}" />
+          <inputLayout:SfTextInputLayout.LeadingView>
+            <Label
+                            FontSize="18"
+                            Text="E"
+                            TextColor="{Binding Path=CurrentActiveColor, Source={x:Reference Name=mobileLayout}}"
+                            VerticalTextAlignment="Center">
+              <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                  <On Platform="iOS" Value="InputLayoutIcons" />
+                  <On Platform="Android" Value="InputLayoutIcons.ttf#InputLayoutIcons" />
+                  <On Platform="UWP" Value="/Assets/Fonts/InputLayoutIcons.ttf#InputLayoutIcons" />
+                </OnPlatform>
+              </Label.FontFamily>
+            </Label>
+          </inputLayout:SfTextInputLayout.LeadingView>
+        </inputLayout:SfTextInputLayout>
+        <!-- ================================= -->
+        <!-- Address  //  enter address        -->
+        <!-- ================================= -->
+        <inputLayout:SfTextInputLayout
+                    x:Name="addressLayout"
+                    ContainerType="Filled"
+                    InputViewPadding="5"
+                    ErrorText="Enter your address"
+                    HasError="{Binding IsAddressEmpty}"
+                    HelperText="Enter your address"
+                    Hint="Address"
+                    IsHintAlwaysFloated="{Binding EnableHintAlwaysFloated}"
+                    LeadingViewPosition="Outside">
+          <inputLayout:SfTextInputLayout.HintLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+          </inputLayout:SfTextInputLayout.HintLabelStyle>
+          <inputLayout:SfTextInputLayout.HelperLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.HelperLabelStyle>
+          <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+          <Editor
+                        x:Name="address"
+                        AutoSize="TextChanges"
+                        Text="{Binding Address}" />
+          <inputLayout:SfTextInputLayout.LeadingView>
+            <Label
+                            FontSize="18"
+                            Text="C"
+                            TextColor="{Binding Path=CurrentActiveColor, Source={x:Reference Name=addressLayout}}"
+                            VerticalTextAlignment="Center">
+              <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                  <On Platform="iOS" Value="InputLayoutIcons" />
+                  <On Platform="Android" Value="InputLayoutIcons.ttf#InputLayoutIcons" />
+                  <On Platform="UWP" Value="/Assets/Fonts/InputLayoutIcons.ttf#InputLayoutIcons" />
+                </OnPlatform>
+              </Label.FontFamily>
+            </Label>
+          </inputLayout:SfTextInputLayout.LeadingView>
+        </inputLayout:SfTextInputLayout>
+        <!-- ================================= -->
+        <!-- State  //  enter your state       -->
+        <!-- ================================= -->
+        <inputLayout:SfTextInputLayout
+                    x:Name="stateLayout"
+                    ContainerType="Filled"
+                    InputViewPadding="5"
+                    ErrorText="Enter your state"
+                    HasError="{Binding IsStateEmpty}"
+                    HelperText="Enter your state"
+                    Hint="State"
+                    IsHintAlwaysFloated="{Binding EnableHintAlwaysFloated}"
+                    LeadingViewPosition="Outside">
+          <inputLayout:SfTextInputLayout.HintLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+          </inputLayout:SfTextInputLayout.HintLabelStyle>
+          <inputLayout:SfTextInputLayout.HelperLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.HelperLabelStyle>
+          <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+          <autoComplete:SfAutoComplete
+                        x:Name="state"
+                        DataSource="{Binding State}"
+                        HighlightedTextColor="#0d5fa3"
+                        SuggestionMode="Contains"
+                        Text="{Binding SelectedState}"
+                        TextHighlightMode="FirstOccurrence">
+              <autoComplete:SfAutoComplete.HeightRequest>
+                <OnPlatform
+                                x:TypeArguments="x:Double"
+                                Android="60"
+                                WinPhone="57"
+                                iOS="21" />
+              </autoComplete:SfAutoComplete.HeightRequest>
+            </autoComplete:SfAutoComplete>
+          <inputLayout:SfTextInputLayout.LeadingView>
+            <Label
+                            FontSize="18"
+                            Text="C"
+                            TextColor="{Binding Path=CurrentActiveColor, Source={x:Reference Name=stateLayout}}"
+                            VerticalTextAlignment="Center">
+              <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                  <On Platform="iOS" Value="InputLayoutIcons" />
+                  <On Platform="Android" Value="InputLayoutIcons.ttf#InputLayoutIcons" />
+                  <On Platform="UWP" Value="/Assets/Fonts/InputLayoutIcons.ttf#InputLayoutIcons" />
+                </OnPlatform>
+              </Label.FontFamily>
+            </Label>
+          </inputLayout:SfTextInputLayout.LeadingView>
+        </inputLayout:SfTextInputLayout>
+        <!-- ================================= -->
+        <!-- Email  //  enter your email ..    -->
+        <!-- ================================= -->
+        <inputLayout:SfTextInputLayout
+                    x:Name="mailLayout"
+                    ContainerType="Filled"
+                    InputViewPadding="5"
+                    ErrorText="Enter a valid email address"
+                    HasError="{Binding HasError}"
+                    HelperText="Enter your email address"
+                    Hint="Email"
+                    IsHintAlwaysFloated="{Binding EnableHintAlwaysFloated}"
+                    LeadingViewPosition="Outside">
+          <inputLayout:SfTextInputLayout.HintLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+          </inputLayout:SfTextInputLayout.HintLabelStyle>
+          <inputLayout:SfTextInputLayout.HelperLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.HelperLabelStyle>
+          <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+          <Entry x:Name="mail" Text="{Binding Mail}" />
+          <inputLayout:SfTextInputLayout.LeadingView>
+            <Label
+                            FontSize="18"
+                            Text="G"
+                            TextColor="{Binding Path=CurrentActiveColor, Source={x:Reference Name=mailLayout}}"
+                            VerticalTextAlignment="Center">
+              <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                  <On Platform="iOS" Value="InputLayoutIcons" />
+                  <On Platform="Android" Value="InputLayoutIcons.ttf#InputLayoutIcons" />
+                  <On Platform="UWP" Value="/Assets/Fonts/InputLayoutIcons.ttf#InputLayoutIcons" />
+                </OnPlatform>
+              </Label.FontFamily>
+            </Label>
+          </inputLayout:SfTextInputLayout.LeadingView>
+        </inputLayout:SfTextInputLayout>
+        <!-- ================================= -->
+        <!-- Password  //  enter 5 to 8 ..     -->
+        <!-- ================================= -->
+        <inputLayout:SfTextInputLayout
+                    x:Name="passwordLayout"
+                    CharMaxLength="8"
+                    ContainerType="Filled"
+                    InputViewPadding="5"
+                    EnablePasswordVisibilityToggle="true"
+                    ErrorText="Enter 5 to 8 characters"
+                    HasError="{Binding IsPasswordEmpty}"
+                    HelperText="Enter 5 to 8 characters"
+                    Hint="Password"
+                    IsHintAlwaysFloated="{Binding EnableHintAlwaysFloated}"
+                    ShowCharCount="true">
+          <inputLayout:SfTextInputLayout.HintLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+          </inputLayout:SfTextInputLayout.HintLabelStyle>
+          <inputLayout:SfTextInputLayout.HelperLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.HelperLabelStyle>
+          <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+          <inputLayout:SfTextInputLayout.CounterLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+          </inputLayout:SfTextInputLayout.CounterLabelStyle>
+          <Entry
+                        x:Name="password"
+                        IsPassword="true"
+                        Text="{Binding Password}" />
+          <inputLayout:SfTextInputLayout.LeadingView>
+            <Label
+                            FontSize="18"
+                            Text="K"
+                            TextColor="{Binding Path=CurrentActiveColor, Source={x:Reference Name=passwordLayout}}"
+                            VerticalTextAlignment="Center">
+              <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                  <On Platform="iOS" Value="InputLayoutIcons" />
+                  <On Platform="Android" Value="InputLayoutIcons.ttf#InputLayoutIcons" />
+                  <On Platform="UWP" Value="/Assets/Fonts/InputLayoutIcons.ttf#InputLayoutIcons" />
+                </OnPlatform>
+              </Label.FontFamily>
+            </Label>
+          </inputLayout:SfTextInputLayout.LeadingView>
+        </inputLayout:SfTextInputLayout>
+        <!-- ================================= -->
+        <!-- Confirm Password  //  .. ..       -->
+        <!-- ================================= -->
+        <inputLayout:SfTextInputLayout
+                    x:Name="confirmPasswordLayout"
+                    ContainerType="Filled"
+                    InputViewPadding="5"
+                    ErrorText="Re-enter your password"
+                    HasError="{Binding IsConfirmPasswordEmpty}"
+                    HelperText="Re-enter your password"
+                    Hint="Confirm password"
+                    IsEnabled="{Binding IsEnabled}"
+                    IsHintAlwaysFloated="{Binding EnableHintAlwaysFloated}">
+          <inputLayout:SfTextInputLayout.HintLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+          </inputLayout:SfTextInputLayout.HintLabelStyle>
+          <inputLayout:SfTextInputLayout.HelperLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.HelperLabelStyle>
+          <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+          <Entry
+                        x:Name="confirmPassword"
+                        IsPassword="true"
+                        Text="{Binding ConfirmPassword}" />
+          <inputLayout:SfTextInputLayout.LeadingView>
+            <Label
+                            FontSize="18"
+                            Text="K"
+                            TextColor="{Binding Path=CurrentActiveColor, Source={x:Reference Name=confirmPasswordLayout}}"
+                            VerticalTextAlignment="Center">
+              <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                  <On Platform="iOS" Value="InputLayoutIcons" />
+                  <On Platform="Android" Value="InputLayoutIcons.ttf#InputLayoutIcons" />
+                  <On Platform="UWP" Value="/Assets/Fonts/InputLayoutIcons.ttf#InputLayoutIcons" />
+                </OnPlatform>
+              </Label.FontFamily>
+            </Label>
+          </inputLayout:SfTextInputLayout.LeadingView>
+        </inputLayout:SfTextInputLayout>
+        <!-- ================================= -->
+        <!-- Birthday  //  .. ..               -->
+        <!-- ================================= -->
+        <Grid>
+          <inputLayout:SfTextInputLayout
+                        x:Name="birthdayLayout"
+                        ContainerType="Filled"
+                        InputViewPadding="5"
+                        HelperText="Enter your date of birth"
+                        Hint="Birth date"
+                        IsHintAlwaysFloated="{Binding EnableHintAlwaysFloated}"
+                        LeadingViewPosition="Outside"
+                        TrailingViewPosition="Inside">
+            <inputLayout:SfTextInputLayout.HintLabelStyle>
+              <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+            </inputLayout:SfTextInputLayout.HintLabelStyle>
+            <inputLayout:SfTextInputLayout.HelperLabelStyle>
+              <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+            </inputLayout:SfTextInputLayout.HelperLabelStyle>
+            <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+              <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+            </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+            <Entry x:Name="dateOfBirth" Text="{Binding DateOfBirth}" />
+            <inputLayout:SfTextInputLayout.LeadingView>
+              <Label
+                                FontSize="18"
+                                Text="H"
+                                TextColor="{Binding Path=CurrentActiveColor, Source={x:Reference Name=birthdayLayout}}"
+                                VerticalTextAlignment="Center">
+                <Label.FontFamily>
+                  <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="iOS" Value="InputLayoutIcons" />
+                    <On Platform="Android" Value="InputLayoutIcons.ttf#InputLayoutIcons" />
+                    <On Platform="UWP" Value="/Assets/Fonts/InputLayoutIcons.ttf#InputLayoutIcons" />
+                  </OnPlatform>
+                </Label.FontFamily>
+              </Label>
+            </inputLayout:SfTextInputLayout.LeadingView>
+            <inputLayout:SfTextInputLayout.TrailingView>
+              <Label
+                                FontSize="18"
+                                Text="D"
+                                TextColor="{Binding Path=CurrentActiveColor, Source={x:Reference Name=birthdayLayout}}"
+                                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                  <!--<TapGestureRecognizer x:Name="labelGesture" Tapped="GestureRecognizer_Tapped" />-->
+                </Label.GestureRecognizers>
+                <Label.FontFamily>
+                  <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="iOS" Value="InputLayoutIcons" />
+                    <On Platform="Android" Value="InputLayoutIcons.ttf#InputLayoutIcons" />
+                    <On Platform="UWP" Value="/Assets/Fonts/InputLayoutIcons.ttf#InputLayoutIcons" />
+                  </OnPlatform>
+                </Label.FontFamily>
+              </Label>
+            </inputLayout:SfTextInputLayout.TrailingView>
+          </inputLayout:SfTextInputLayout>
+          <DatePicker
+                        x:Name="date_Picker"
+                        Opacity="0"
+                        VerticalOptions="CenterAndExpand" />
+        </Grid>
+        <!-- ================================= -->
+        <!-- Notes  //  .. ..                  -->
+        <!-- ================================= -->
+        <inputLayout:SfTextInputLayout
+                    x:Name="notesLayout"
+                    CharMaxLength="50"
+                    ContainerType="Filled"
+                    InputViewPadding="5"
+                    Hint="Notes"
+                    IsHintAlwaysFloated="{Binding EnableHintAlwaysFloated}"
+                    LeadingViewPosition="Outside"
+                    ShowCharCount="True">
+          <inputLayout:SfTextInputLayout.HintLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Small"/>
+          </inputLayout:SfTextInputLayout.HintLabelStyle>
+          <inputLayout:SfTextInputLayout.CounterLabelStyle>
+            <inputLayout:LabelStyle
+                            FontAttributes="None"
+                            FontSize="Micro"/>
+          </inputLayout:SfTextInputLayout.CounterLabelStyle>
+          <Editor
+                        x:Name="notes"
+                        HeightRequest="80"
+                        Text="{Binding Notes}" />
+          <inputLayout:SfTextInputLayout.LeadingView>
+            <Label
+                            FontSize="18"
+                            Text="B"
+                            TextColor="{Binding Path=CurrentActiveColor, Source={x:Reference Name=notesLayout}}"
+                            VerticalTextAlignment="Center">
+              <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                  <On Platform="iOS" Value="InputLayoutIcons" />
+                  <On Platform="Android" Value="InputLayoutIcons.ttf#InputLayoutIcons" />
+                  <On Platform="UWP" Value="/Assets/Fonts/InputLayoutIcons.ttf#InputLayoutIcons" />
+                </OnPlatform>
+              </Label.FontFamily>
+            </Label>
+          </inputLayout:SfTextInputLayout.LeadingView>
+        </inputLayout:SfTextInputLayout>
+        <StackLayout
+                    Padding="25,0,0,0"
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal">
+          <Button
+                        x:Name="submitButton"
+                        BackgroundColor="#0d5fa3"
+                        Command="{Binding SubmitCommand}"
+                        CommandParameter="{Binding Source={x:Reference state}, Path=Text}"
+                        Text="Submit"
+                        TextColor="White"
+                        WidthRequest="100" />
+          <Button
+                        x:Name="resetButton"
+                        Margin="10,0,0,0"
+                        BackgroundColor="#90979b"
+                        Command="{Binding ResetCommand}"
+                        CommandParameter="{Binding Source={x:Reference state}}"
+                        Text="Reset"
+                        TextColor="White"
+                        WidthRequest="100" />
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+    <!--<StackLayout Padding="0,10,0,0">
+      <StackLayout.Padding>
+        <OnPlatform
+                        x:TypeArguments="Thickness"
+                        Android="0,10,0,0"
+                        WinPhone="10,10,0,0"
+                        iOS="0,10,0,0" />
+      </StackLayout.Padding>
+      <StackLayout.Spacing>
+        <OnPlatform
+                        x:TypeArguments="x:Double"
+                        Android="10"
+                        WinPhone="10"
+                        iOS="20" />
+      </StackLayout.Spacing>
+      <Grid>
+        <Label Text="Is hint always floated" VerticalTextAlignment="Center" />
+        <Switch
+                        Grid.Column="1"
+                        HorizontalOptions="EndAndExpand"
+                        IsToggled="{Binding EnableHintAlwaysFloated}" />
+      </Grid>
+      <Grid>
+        <Label Text="Layout type" VerticalTextAlignment="Center" />
+        <Picker
+                        x:Name="picker"
+                        Grid.Column="1"
+                        HorizontalOptions="FillAndExpand">
+          <Picker.Items>
+            <x:String>Filled</x:String>
+            <x:String>Outlined</x:String>
+            <x:String>None</x:String>
+          </Picker.Items>
+        </Picker>
+      </Grid>
+      <Grid>
+        <Label Text="Hint font size" VerticalTextAlignment="Center" />
+        <Picker
+                        x:Name="picker1"
+                        Grid.Column="1"
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding FontSizeCollection}"
+                        SelectedIndex="{Binding SelectedFontSize}" />
+      </Grid>
+      <Grid>
+        <Label Text="Font family" VerticalTextAlignment="Center" />
+        <Picker
+                        x:Name="picker2"
+                        Grid.Column="1"
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding FontFamilyCollection}"
+                        SelectedIndex="{Binding SelectedFontFamily}" />
+      </Grid>
+      <Grid>
+        <Label
+                        x:Name="fontAttributeLabel"
+                        Text="Font attribute"
+                        VerticalTextAlignment="Center" />
+        <Picker
+                        x:Name="picker3"
+                        Grid.Column="1"
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding FontAttributeCollection}"
+                        SelectedIndex="{Binding SelectedFontAttribute}" />
+      </Grid>
+    </StackLayout>-->
+    <Label Text="Published by CNG Internet Software, LLC.&#x0a;  Publisher of the 'Small App - Big Impact' App Series  " 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" FontSize="Micro" 
+           HeightRequest="35" 
+           HorizontalTextAlignment="Center" 
+           TextColor="#FFFFFF" BackgroundColor="#000000" Margin="0" />
+    <!--<sfPopup:SfPopupLayout x:Name="popupLayout">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="False">
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                     TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout">
+          <Button x:Name="clickToShowPopup" Text="ClickToShowPopup" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>-->
+  </StackLayout>
+</ContentPage>

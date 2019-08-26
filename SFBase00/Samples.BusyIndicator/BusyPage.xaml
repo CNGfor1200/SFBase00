@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:gradient ="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:RangeSlider="clr-namespace:Syncfusion.SfRangeSlider.XForms;assembly=Syncfusion.SfRangeSlider.XForms"
+
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms" 
+
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:SFBase00"
+             Padding="0,40,0,0"
+             xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+             xmlns:SyncfusionButton="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             x:Class="SFBase00.BusyPage">
+
+  <StackLayout>
+    <!-- Place new controls here -->
+    <Label Text="Syncfusion - Borders" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" FontSize="Body" HeightRequest="20" HorizontalTextAlignment="Center" TextColor="#000000" />
+    <ScrollView>
+      <Grid Padding="10" BackgroundColor="White">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Vertical" Grid.Row="0">
+          <Label x:Name="animationLabel" Text="Select Animation Type!!!" FontSize="20" FontAttributes="Bold"  HeightRequest= "50" />
+          <Picker x:Name="animationPicker"  VerticalOptions="Start"   />
+        </StackLayout>
+        <busyindicator:SfBusyIndicator Duration="20" VerticalOptions="FillAndExpand" Grid.Row="1" x:Name="sfbusyindicator" ViewBoxWidth="150" ViewBoxHeight="150" BackgroundColor="White"/>
+      </Grid>
+    </ScrollView>
+    <Label Text="Published by CNG Internet Software, LLC.&#x0a;  Publisher of the 'Small App - Big Impact' App Series  " 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" FontSize="Micro" 
+           HeightRequest="35" 
+           HorizontalTextAlignment="Center" 
+           TextColor="#FFFFFF" BackgroundColor="#000000" Margin="0" />
+    <sfPopup:SfPopupLayout x:Name="popupLayout">
+      <sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:PopupView ShowCloseButton="False">
+          <sfPopup:PopupView.HeaderTemplate>
+            <DataTemplate>
+              <Label Text="CNG Customized Header" 
+                     FontAttributes="Bold"
+                               BackgroundColor="Blue"
+                     TextColor="White"
+                               FontSize="16"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+            </DataTemplate>
+          </sfPopup:PopupView.HeaderTemplate>
+        </sfPopup:PopupView>
+      </sfPopup:SfPopupLayout.PopupView>
+      <sfPopup:SfPopupLayout.Content>
+        <StackLayout x:Name="layout">
+          <Button x:Name="clickToShowPopup" Text="ClickToShowPopup" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+      </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+  </StackLayout>
+</ContentPage>
